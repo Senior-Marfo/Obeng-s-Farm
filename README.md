@@ -11,7 +11,11 @@ Website for Obeng's Farm: farm-fresh eggs and live chickens.
 | Live chicken (fowl) | GH₵ 300 each |
 
 ## Run
-Open `index.html` in a browser. No build step is needed. You can host it free on GitHub Pages.
+Open `index.html` in a browser. No build step is needed. 
+## Live site
+Once GitHub Pages is on, the site is at https://senior-marfo.github.io/Obeng-s-Farm/
+
+To turn it on: repository **Settings → Pages → Build and deployment**, set **Source** to *Deploy from a branch*, choose **main** and **/ (root)**, then **Save**. After a minute or two the site is live. Every change pushed to `main` updates it automatically.
 
 ## Settings
 Edit the `CONFIG` block at the top of `js/app.js`:
