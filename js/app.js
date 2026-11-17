@@ -9,18 +9,18 @@ const CONFIG = {
   currency: "GH₵",
 };
 
-const IMG = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=700&q=80`;
+const IMG = (file) => `images/${file}`;
 
 const EGGS = [
-  { id: "egg-s",  name: "Small Eggs",       size: "Small",       price: 40, scale: 0.62, img: IMG("photo-1506976785307-8732e854ad03"), desc: "Perfect for baking and everyday cooking." },
-  { id: "egg-m",  name: "Medium Eggs",      size: "Medium",      price: 45, scale: 0.74, img: IMG("photo-1569288063643-5d29ad64df09"), desc: "The family favourite for breakfast." },
-  { id: "egg-l",  name: "Large Eggs",       size: "Large",       price: 55, scale: 0.87, img: IMG("photo-1587486913049-53fc88980cfc"), desc: "Rich golden yolks, great for boiling.", tag: "Popular" },
-  { id: "egg-xl", name: "Extra Large Eggs", size: "Extra Large", price: 65, scale: 1.0,  img: IMG("photo-1582722872445-44dc5f7e3c8f"), desc: "Our biggest eggs — ideal for caterers." },
+  { id: "egg-s",  name: "Small Eggs",       size: "Small",       price: 40, scale: 0.62, img: IMG("eggs-small.jpg"), desc: "Perfect for baking and everyday cooking." },
+  { id: "egg-m",  name: "Medium Eggs",      size: "Medium",      price: 45, scale: 0.74, img: IMG("eggs-medium.jpg"), desc: "The family favourite for breakfast." },
+  { id: "egg-l",  name: "Large Eggs",       size: "Large",       price: 55, scale: 0.87, img: IMG("eggs-large.jpg"), desc: "Rich golden yolks, great for boiling.", tag: "Popular" },
+  { id: "egg-xl", name: "Extra Large Eggs", size: "Extra Large", price: 65, scale: 1.0,  img: IMG("eggs-tray.jpg"), desc: "Our biggest eggs — ideal for caterers." },
 ];
 
 const FOWL = {
   id: "fowl", name: "Live Chicken (Fowl)", price: 300, unit: "per bird",
-  img: IMG("photo-1612170153139-6f881ff067e0"),
+  img: IMG("hen.jpg"),
   desc: "Healthy, well-fed farm chickens — great for festive occasions, family meals and events.",
 };
 
@@ -30,24 +30,6 @@ const byId = Object.fromEntries(ALL.map((p) => [p.id, p]));
 // ---- Helpers ----
 const $ = (s, r = document) => r.querySelector(s);
 const money = (n) => `${CONFIG.currency} ${n.toLocaleString("en-GH")}`;
-
-// Fallback art if an online photo fails to load
-function fallbackSVG(kind) {
-  const egg = `<ellipse cx="200" cy="165" rx="70" ry="88" fill="#fbf3e2" stroke="#d9b98a" stroke-width="4"/><ellipse cx="300" cy="190" rx="55" ry="70" fill="#e8c9a0"/><ellipse cx="110" cy="195" rx="50" ry="64" fill="#d8ad7c"/>`;
-  const hen = `<ellipse cx="200" cy="180" rx="95" ry="70" fill="#b5652b"/><circle cx="280" cy="120" r="38" fill="#c8753a"/><path d="M270 82 q8-22 18-4 q8-18 16 4z" fill="#d23c2a"/><path d="M316 120 l20 6 -20 7z" fill="#f2a516"/><circle cx="290" cy="114" r="5" fill="#222"/><path d="M110 150 q-40-50-10-80 q10 40 40 50z" fill="#8a4a1d"/>`;
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#f6e7c8"/><rect y="230" width="400" height="70" fill="#d7c39a"/>${kind === "hen" ? hen : egg}</svg>`;
-  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
-}
-function attachFallback(img) {
-  const swap = () => {
-    if (img.dataset.failed) return;
-    img.dataset.failed = "1";
-    img.src = fallbackSVG(img.dataset.fallback);
-  };
-  // Image may have already failed before this script ran
-  if (img.complete && img.naturalWidth === 0 && img.src) swap();
-  else img.addEventListener("error", swap, { once: true });
-}
 
 // ---- Cart state (remembered on this device) ----
 let cart = {};
@@ -78,7 +60,7 @@ function renderProducts() {
   $("#eggGrid").innerHTML = EGGS.map((p) => `
     <article class="card">
       <div class="card-media">
-        <img src="${p.img}" alt="${p.name}" loading="lazy" data-fallback="eggs">
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
         ${p.tag ? `<span class="tag">${p.tag}</span>` : ""}
         <span class="size-pill"><span class="egg-shape" style="--s:${p.scale}"></span>${p.size}</span>
       </div>
@@ -92,7 +74,7 @@ function renderProducts() {
 
   $("#fowlCard").innerHTML = `
     <article class="card card--wide">
-      <div class="card-media"><img src="${FOWL.img}" alt="Live farm chickens" loading="lazy" data-fallback="hen"></div>
+      <div class="card-media"><img src="${FOWL.img}" alt="Live farm chickens" loading="lazy"></div>
       <div class="card-body">
         <span class="tag tag--static">Live bird</span>
         <h3>${FOWL.name}</h3>
@@ -102,8 +84,6 @@ function renderProducts() {
         <div class="card-actions">${qtyControl(FOWL.id)}<button class="btn btn-primary add" data-id="${FOWL.id}">Add to basket</button></div>
       </div>
     </article>`;
-
-  document.querySelectorAll("img[data-fallback]").forEach(attachFallback);
 }
 
 function cartTotals() {
@@ -127,7 +107,7 @@ function renderCart() {
   $("#cartList").innerHTML = items.map(([id, q]) => {
     const p = byId[id];
     return `<li class="cart-item">
-      <img src="${p.img}" alt="" data-fallback="${id === "fowl" ? "hen" : "eggs"}">
+      <img src="${p.img}" alt="">
       <div class="ci-info">
         <strong>${p.name}</strong>
         <span class="muted">${money(p.price)} ${id === "fowl" ? "/ bird" : "/ crate"}</span>
@@ -141,7 +121,6 @@ function renderCart() {
       <strong class="ci-sub">${money(p.price * q)}</strong>
     </li>`;
   }).join("");
-  $("#cartList").querySelectorAll("img[data-fallback]").forEach(attachFallback);
 }
 
 // ---- Drawer ----
@@ -225,6 +204,5 @@ if (CONFIG.phoneDisplay) {
   $("#phoneText").textContent = "Number coming soon";
   $("#callLink").removeAttribute("href");
 }
-document.querySelectorAll("img[data-fallback]").forEach(attachFallback);
 renderProducts();
 renderCart();

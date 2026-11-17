@@ -232,6 +232,10 @@ a.contact-card[href]:hover { border-color: var(--green); }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
 .site-footer .brand-name { color: var(--white); }
 .site-footer p { margin: 0; font-size: .9rem; }
+.credits { margin-top: 1rem; font-size: .78rem; color: #a9bba3; }
+.credits summary { cursor: pointer; }
+.credits p { font-size: .78rem; margin-top: .4rem; }
+.credits a { color: #dfe9da; }
 
 /* ---- Drawer ---- */
 .overlay { position: fixed; inset: 0; background: rgba(30, 25, 15, .45); z-index: 40; }
