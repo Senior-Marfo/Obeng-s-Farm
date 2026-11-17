@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Obeng's Farm — Fresh Eggs & Live Chickens</title>
+  <meta name="description" content="Obeng's Farm: farm-fresh eggs in small, medium, large and extra large crates, plus healthy live chickens. Order easily via WhatsApp.">
+  <meta name="theme-color" content="#2f5d34">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥚</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Obeng's Farm home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><ellipse cx="20" cy="22" rx="13" ry="16" fill="#f6e7c8" stroke="#2f5d34" stroke-width="2.5"/><circle cx="20" cy="25" r="6" fill="#f2a516"/></svg>
+        </span>
+        <span class="brand-name">Obeng's <em>Farm</em></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#products">Shop</a>
+        <a href="#about">Our Farm</a>
+        <a href="#how">How to Order</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="cart-btn" id="cartOpen" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20.5" r="1.5" fill="currentColor"/><circle cx="17" cy="20.5" r="1.5" fill="currentColor"/></svg>
+        <span>Basket</span>
+        <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">🌿 Fresh from our farm every morning</p>
+          <h1>Farm-fresh eggs &amp; healthy chickens, <span class="hl">straight to your table.</span></h1>
+          <p class="lead">At Obeng's Farm our birds are raised with care, fed well and collected daily — so every crate you buy is clean, fresh and full of goodness.</p>
+          <div class="hero-actions">
+            <a href="#products" class="btn btn-primary">Shop eggs &amp; chickens</a>
+            <a href="#how" class="btn btn-ghost">How ordering works</a>
+          </div>
+          <ul class="trust">
+            <li><strong>Daily</strong><span>collection</span></li>
+            <li><strong>4</strong><span>egg sizes</span></li>
+            <li><strong>GH₵ 40</strong><span>crates from</span></li>
+          </ul>
+        </div>
+        <div class="hero-media">
+          <div class="hero-img-wrap">
+            <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=900&q=80"
+                 alt="Fresh brown eggs in a tray" class="hero-img" data-fallback="eggs">
+          </div>
+          <div class="hero-badge">
+            <span class="badge-big">100%</span>
+            <span class="badge-small">Farm fresh</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Our produce</p>
+          <h2>Pick your eggs</h2>
+          <p class="muted">All egg prices are per crate of 30. Choose a size, set the quantity and add it to your basket.</p>
+        </div>
+
+        <div class="grid products" id="eggGrid"><!-- rendered by app.js --></div>
+
+        <div class="section-head section-head--spaced">
+          <p class="eyebrow">Live birds</p>
+          <h2>Healthy chickens</h2>
+        </div>
+        <div id="fowlCard"><!-- rendered by app.js --></div>
+      </div>
+    </section>
+
+    <!-- Size guide -->
+    <section class="section section--tint">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Not sure which size?</p>
+          <h2>Egg size guide</h2>
+        </div>
+        <div class="size-guide">
+          <div class="size-item"><span class="egg-shape" style="--s:.62"></span><h3>Small</h3><p>Great for baking &amp; everyday cooking.</p><strong>GH₵ 40</strong></div>
+          <div class="size-item"><span class="egg-shape" style="--s:.74"></span><h3>Medium</h3><p>The family favourite for breakfast.</p><strong>GH₵ 45</strong></div>
+          <div class="size-item"><span class="egg-shape" style="--s:.87"></span><h3>Large</h3><p>Rich yolks, perfect for boiling.</p><strong>GH₵ 55</strong></div>
+          <div class="size-item"><span class="egg-shape" style="--s:1"></span><h3>Extra Large</h3><p>Our biggest eggs — ideal for chop bars &amp; caterers.</p><strong>GH₵ 65</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container about">
+        <div class="about-media">
+          <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=900&q=80"
+               alt="Hens roaming on the farm" data-fallback="hen">
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow">Our farm</p>
+          <h2>Raised with care, the Obeng way</h2>
+          <p>Obeng's Farm is a family poultry farm committed to giving you the freshest eggs and the healthiest birds. We look after our flock every day, so you get quality you can taste.</p>
+          <ul class="features">
+            <li><span class="ico">🌾</span><div><strong>Quality feed</strong><p>Balanced, nutritious feed for strong, healthy birds.</p></div></li>
+            <li><span class="ico">🧺</span><div><strong>Collected daily</strong><p>Eggs are gathered, checked and crated every morning.</p></div></li>
+            <li><span class="ico">🩺</span><div><strong>Healthy flock</strong><p>Vaccinated birds kept in clean, well-ventilated pens.</p></div></li>
+            <li><span class="ico">🚚</span><div><strong>Pickup or delivery</strong><p>Collect from the farm or arrange delivery to you.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to order -->
+    <section class="section section--green" id="how">
+      <div class="container">
+        <div class="section-head section-head--light">
+          <p class="eyebrow">Simple &amp; quick</p>
+          <h2>How to order</h2>
+        </div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><h3>Fill your basket</h3><p>Choose your egg sizes or chickens and set how many you need.</p></li>
+          <li><span class="step-num">2</span><h3>Add your details</h3><p>Tell us your name, phone number and pickup or delivery location.</p></li>
+          <li><span class="step-num">3</span><h3>Send on WhatsApp</h3><p>Your order is sent to us on WhatsApp. We confirm and arrange payment (cash or MoMo).</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container contact">
+        <div>
+          <p class="eyebrow">Get in touch</p>
+          <h2>Visit or call Obeng's Farm</h2>
+          <p class="muted">Bulk buyers, restaurants, caterers and retailers are welcome — ask us about regular supply.</p>
+        </div>
+        <div class="contact-cards">
+          <a class="contact-card" id="waLink" href="#" target="_blank" rel="noopener"><span class="ico">💬</span><div><strong>WhatsApp</strong><span>Chat with us to order</span></div></a>
+          <a class="contact-card" id="callLink" href="#"><span class="ico">📞</span><div><strong>Call us</strong><span id="phoneText">Phone number</span></div></a>
+          <div class="contact-card"><span class="ico">🕖</span><div><strong>Opening hours</strong><span>Mon – Sat, 7:00am – 6:00pm</span></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="brand-name">Obeng's <em>Farm</em></span>
+      <p>Fresh eggs &amp; live chickens · © <span id="year"></span> Obeng's Farm</p>
+    </div>
+  </footer>
+
+  <!-- Cart drawer -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer" id="drawer" aria-label="Your basket" aria-hidden="true">
+    <div class="drawer-head">
+      <h2>Your basket</h2>
+      <button class="icon-btn" id="cartClose" aria-label="Close basket">✕</button>
+    </div>
+    <div class="drawer-body">
+      <ul class="cart-list" id="cartList"></ul>
+      <div class="cart-empty" id="cartEmpty">
+        <span class="egg-shape" style="--s:.8"></span>
+        <p>Your basket is empty.</p>
+        <button class="btn btn-ghost btn-sm" id="emptyShop">Start shopping</button>
+      </div>
+
+      <form class="order-form" id="orderForm" novalidate>
+        <h3>Your details</h3>
+        <label>Full name<input name="name" required autocomplete="name" placeholder="e.g. Ama Mensah"></label>
+        <label>Phone number<input name="phone" required type="tel" autocomplete="tel" placeholder="e.g. 024 123 4567"></label>
+        <fieldset class="seg">
+          <legend>Pickup or delivery</legend>
+          <label><input type="radio" name="method" value="Pickup at farm" checked><span>Pickup</span></label>
+          <label><input type="radio" name="method" value="Delivery"><span>Delivery</span></label>
+        </fieldset>
+        <label class="addr" hidden>Delivery location<input name="address" placeholder="Area / landmark"></label>
+        <label>Note (optional)<textarea name="note" rows="2" placeholder="Any special request?"></textarea></label>
+      </form>
+    </div>
+    <div class="drawer-foot">
+      <div class="total-row"><span>Total</span><strong id="cartTotal">GH₵ 0</strong></div>
+      <button class="btn btn-primary btn-block" id="checkout" disabled>
+        Send order on WhatsApp
+      </button>
+      <p class="tiny muted">Payment on confirmation · Cash or Mobile Money</p>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
