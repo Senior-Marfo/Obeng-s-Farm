@@ -23,5 +23,5 @@ Edit the `CONFIG` block at the top of `js/app.js`:
 - `phoneDisplay`: the phone number shown on the site, e.g. `024 123 4567`
 
 To change prices or photos, edit the `EGGS` and `FOWL` lists in the same file.
-Photos are stored in the `images/` folder, so they always load. To use your own farm photos, replace those files and keep the same names.
-The current photos come from Wikimedia Commons under Creative Commons licences. The site credits them under "Photo credits" in the footer; keep those credits for as long as the photos are used.
+Eggs are shown as drawn egg shapes sized to match each grade. The chicken photos are stored in the `images/` folder; to use your own farm photos, replace those files and keep the same names.
+The chicken photos come from Wikimedia Commons under a Creative Commons licence. The site credits them under "Photo credits" in the footer; keep those credits for as long as the photos are used.

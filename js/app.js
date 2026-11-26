@@ -12,10 +12,10 @@ const CONFIG = {
 const IMG = (file) => `images/${file}`;
 
 const EGGS = [
-  { id: "egg-s",  name: "Small Eggs",       size: "Small",       price: 40, scale: 0.62, img: IMG("eggs-small.jpg"), desc: "Perfect for baking and everyday cooking." },
-  { id: "egg-m",  name: "Medium Eggs",      size: "Medium",      price: 45, scale: 0.74, img: IMG("eggs-medium.jpg"), desc: "The family favourite for breakfast." },
-  { id: "egg-l",  name: "Large Eggs",       size: "Large",       price: 55, scale: 0.87, img: IMG("eggs-large.jpg"), desc: "Rich golden yolks, great for boiling.", tag: "Popular" },
-  { id: "egg-xl", name: "Extra Large Eggs", size: "Extra Large", price: 65, scale: 1.0,  img: IMG("eggs-tray.jpg"), desc: "Our biggest eggs — ideal for caterers." },
+  { id: "egg-s",  name: "Small Eggs",       size: "Small",       price: 40, scale: 0.62, desc: "Perfect for baking and everyday cooking." },
+  { id: "egg-m",  name: "Medium Eggs",      size: "Medium",      price: 45, scale: 0.74, desc: "The family favourite for breakfast." },
+  { id: "egg-l",  name: "Large Eggs",       size: "Large",       price: 55, scale: 0.87, desc: "Rich golden yolks, great for boiling.", tag: "Popular" },
+  { id: "egg-xl", name: "Extra Large Eggs", size: "Extra Large", price: 65, scale: 1.0,  desc: "Our biggest eggs — ideal for caterers." },
 ];
 
 const FOWL = {
@@ -59,10 +59,9 @@ function qtyControl(id) {
 function renderProducts() {
   $("#eggGrid").innerHTML = EGGS.map((p) => `
     <article class="card">
-      <div class="card-media">
-        <img src="${p.img}" alt="${p.name}" loading="lazy">
+      <div class="card-media card-media--egg" role="img" aria-label="${p.size} egg">
+        <span class="egg-shape" style="--s:${p.scale}"></span>
         ${p.tag ? `<span class="tag">${p.tag}</span>` : ""}
-        <span class="size-pill"><span class="egg-shape" style="--s:${p.scale}"></span>${p.size}</span>
       </div>
       <div class="card-body">
         <h3>${p.name}</h3>
@@ -107,7 +106,7 @@ function renderCart() {
   $("#cartList").innerHTML = items.map(([id, q]) => {
     const p = byId[id];
     return `<li class="cart-item">
-      <img src="${p.img}" alt="">
+      ${p.img ? `<img src="${p.img}" alt="">` : `<span class="ci-thumb"><span class="egg-shape" style="--s:${p.scale}"></span></span>`}
       <div class="ci-info">
         <strong>${p.name}</strong>
         <span class="muted">${money(p.price)} ${id === "fowl" ? "/ bird" : "/ crate"}</span>
