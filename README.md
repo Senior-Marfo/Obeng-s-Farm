@@ -1,6 +1,6 @@
-# Obeng's Farm
+# Opoku Farms
 
-Website for Obeng's Farm: farm-fresh eggs and live chickens.
+Website for Opoku Farms: farm-fresh eggs and live chickens.
 
 | Product | Price |
 |---|---|

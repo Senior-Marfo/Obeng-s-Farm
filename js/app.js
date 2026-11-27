@@ -1,4 +1,4 @@
-/* ===== Obeng's Farm — shop logic ===== */
+/* ===== Opoku Farms — shop logic ===== */
 
 // ---- Business settings: edit these ----
 const CONFIG = {
@@ -33,8 +33,8 @@ const money = (n) => `${CONFIG.currency} ${n.toLocaleString("en-GH")}`;
 
 // ---- Cart state (remembered on this device) ----
 let cart = {};
-try { cart = JSON.parse(localStorage.getItem("obeng-cart") || "{}"); } catch { cart = {}; }
-const save = () => { try { localStorage.setItem("obeng-cart", JSON.stringify(cart)); } catch {} };
+try { cart = JSON.parse(localStorage.getItem("opoku-cart") || "{}"); } catch { cart = {}; }
+const save = () => { try { localStorage.setItem("opoku-cart", JSON.stringify(cart)); } catch {} };
 
 function addToCart(id, qty) {
   cart[id] = (cart[id] || 0) + qty;
@@ -152,7 +152,7 @@ function checkout() {
     return `• ${q} × ${p.name} (${id === "fowl" ? "bird" : "crate"}) — ${money(p.price * q)}`;
   });
   const msg = [
-    "Hello Obeng's Farm 👋, I'd like to place an order:",
+    "Hello Opoku Farms 👋, I'd like to place an order:",
     "", ...lines, "", `*Total: ${money(cartTotals().total)}*`, "",
     `Name: ${data.name}`, `Phone: ${data.phone}`, `Method: ${data.method}`,
     data.method === "Delivery" ? `Location: ${data.address}` : null,
@@ -195,7 +195,7 @@ $("#orderForm").addEventListener("change", (e) => {
 
 // ---- Init ----
 $("#year").textContent = new Date().getFullYear();
-$("#waLink").href = waUrl("Hello Obeng's Farm, I'd like to order eggs/chickens.");
+$("#waLink").href = waUrl("Hello Opoku Farms, I'd like to order eggs/chickens.");
 if (CONFIG.phoneDisplay) {
   $("#phoneText").textContent = CONFIG.phoneDisplay;
   $("#callLink").href = `tel:${CONFIG.phoneDisplay.replace(/\s/g, "")}`;

@@ -1,4 +1,4 @@
-/* ===== Obeng's Farm — warm, natural farm palette ===== */
+/* ===== Opoku Farms — warm, natural farm palette ===== */
 :root {
   --cream: #fdf8ee;
   --cream-2: #f6ecd8;
@@ -294,10 +294,11 @@ a.contact-card[href]:hover { border-color: var(--green); }
 .toast {
   position: fixed; left: 50%; top: 84px; transform: translate(-50%, -300%);
   background: var(--ink); color: var(--white); padding: .75rem 1.2rem; border-radius: 999px;
-  font-size: .92rem; z-index: 60; transition: transform .3s ease; box-shadow: var(--shadow);
+  font-size: .92rem; z-index: 60; box-shadow: var(--shadow);
+  opacity: 0; visibility: hidden; transition: transform .3s ease, opacity .3s ease, visibility .3s;
   max-width: calc(100% - 32px); text-align: center;
 }
-.toast.show { transform: translate(-50%, 0); }
+.toast.show { transform: translate(-50%, 0); opacity: 1; visibility: visible; }
 
 /* ---- Responsive ---- */
 @media (max-width: 1000px) {
