@@ -19,8 +19,9 @@ To turn it on: repository **Settings → Pages → Build and deployment**, set *
 
 ## Settings
 Edit the `CONFIG` block at the top of `js/app.js`:
-- `whatsapp`: the farm's WhatsApp number in international format, e.g. `233241234567`
-- `phoneDisplay`: the phone number shown on the site, e.g. `024 123 4567`
+- `whatsapp`: the WhatsApp number orders are sent to, in international format (currently `233261761735`)
+
+The phone numbers on the "Call us" card are in `index.html`, in the Contact section.
 
 To change prices or photos, edit the `EGGS` and `FOWL` lists in the same file.
 Eggs are shown as drawn egg shapes sized to match each grade. The chicken photos are stored in the `images/` folder; to use your own farm photos, replace those files and keep the same names.

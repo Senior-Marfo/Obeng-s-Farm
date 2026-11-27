@@ -227,6 +227,8 @@ a { color: inherit; }
   padding: 1.1rem 1.3rem; border-radius: var(--radius); border: 1px solid #efe3c9; box-shadow: var(--shadow-sm);
 }
 a.contact-card[href]:hover { border-color: var(--green); }
+.phones a { color: var(--green-dark); font-weight: 600; text-decoration: none; white-space: nowrap; }
+.phones a:hover { text-decoration: underline; }
 .contact-card div { display: flex; flex-direction: column; }
 .contact-card span:not(.ico) { color: var(--muted); font-size: .92rem; }
 

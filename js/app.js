@@ -2,10 +2,8 @@
 
 // ---- Business settings: edit these ----
 const CONFIG = {
-  // WhatsApp number in international format, digits only (e.g. "233241234567").
-  // Leave empty and WhatsApp will ask the customer which chat to send to.
-  whatsapp: "",
-  phoneDisplay: "", // e.g. "024 123 4567"
+  // WhatsApp number in international format, digits only. Orders are sent here.
+  whatsapp: "233261761735",
   currency: "GH₵",
 };
 
@@ -196,12 +194,5 @@ $("#orderForm").addEventListener("change", (e) => {
 // ---- Init ----
 $("#year").textContent = new Date().getFullYear();
 $("#waLink").href = waUrl("Hello Opoku Farms, I'd like to order eggs/chickens.");
-if (CONFIG.phoneDisplay) {
-  $("#phoneText").textContent = CONFIG.phoneDisplay;
-  $("#callLink").href = `tel:${CONFIG.phoneDisplay.replace(/\s/g, "")}`;
-} else {
-  $("#phoneText").textContent = "Number coming soon";
-  $("#callLink").removeAttribute("href");
-}
 renderProducts();
 renderCart();
